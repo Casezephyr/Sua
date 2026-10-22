@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#8b8c92">
+  <title>SUA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Rubik:ital,wght@0,500;1,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main id="device">
+
+    <!-- ===== Panel layar (bagian atas) ===== -->
+    <section id="screen-panel">
+      <div id="stage">
+        <canvas id="game" aria-label="Game SUA"></canvas>
+        <!-- dua lapisan warna untuk mode layar hijau (tombol SELECT) -->
+        <div class="tint tint-light" aria-hidden="true"></div>
+        <div class="tint tint-dark" aria-hidden="true"></div>
+      </div>
+      <div class="panel-footer">
+        <!-- Tombol donasi: ganti alamatnya di sini kalau perlu -->
+        <a class="donate" href="https://give.seasia.greenpeace.org/indonesia/?utm_campaign=General&amp;utm_source=Planet4&amp;utm_medium=Header&amp;utm_content=DonationButton&amp;utm_audience=merch-reg%23&amp;gp_anonymous_id=b683669e-8581-4fb2-878a-809b08a3cb14&amp;gtm_utm_campaign=General&amp;gtm_utm_source=Planet4&amp;gtm_utm_medium=Header&amp;gtm_utm_content=DonationButton"
+           target="_blank" rel="noopener noreferrer"
+           aria-label="Donasi ke Greenpeace Indonesia (membuka tab baru)">
+          <span aria-hidden="true">♥</span> DONASI
+        </a>
+      </div>
+    </section>
+
+    <!-- ===== Badan konsol (bagian bawah) ===== -->
+    <section id="controls">
+      <p class="brand">SUA <em>POCKET</em></p>
+
+      <div class="dpad" aria-label="Arah">
+        <button class="up"    data-key="up"    aria-label="Naik"></button>
+        <button class="left"  data-key="left"  aria-label="Kiri"></button>
+        <span   class="mid"   aria-hidden="true"></span>
+        <button class="right" data-key="right" aria-label="Kanan"></button>
+        <button class="down"  data-key="down"  aria-label="Turun"></button>
+      </div>
+
+      <div class="ab">
+        <div class="ab-b">
+          <button data-key="b" aria-label="B, lempar poster"></button>
+          <span>B</span>
+        </div>
+        <div class="ab-a">
+          <button data-key="a" aria-label="A, pasang spanduk"></button>
+          <span>A</span>
+        </div>
+      </div>
+
+      <div class="menu">
+        <div>
+          <button data-key="select" aria-label="Select, ganti warna layar"></button>
+          <span>SELECT</span>
+        </div>
+        <div>
+          <button data-key="start" aria-label="Start, mulai atau jeda"></button>
+          <span>START</span>
+        </div>
+      </div>
+
+      <button class="speaker" id="speaker" aria-label="Suara" aria-pressed="true">
+        <i></i><i></i><i></i><i></i><i></i><i></i>
+      </button>
+    </section>
+  </main>
+
+  <p id="hint">keyboard: panah · Z = A (spanduk) · X = B (poster) · Enter = START · Shift = SELECT · M = suara · ketuk speaker untuk bisukan</p>
+
+  <!-- Urutan penting: aset & suara dulu, baru game -->
+  <script src="aset.js"></script>
+  <script src="audio.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>
