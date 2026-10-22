@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#8b8c92">
+  <title>SUA</title>
+
+  <!-- Ikon web: taruh Icon.png di folder yang sama dengan index.html (huruf I besar) -->
+  <link rel="icon" type="image/png" href="Icon.png">
+  <link rel="apple-touch-icon" href="Icon.png">
+
+  <!-- Vercel Web Analytics (hanya aktif setelah di-deploy ke Vercel & Analytics dinyalakan) -->
+  <script>
+    window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+  </script>
+  <script defer src="/_vercel/insights/script.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Rubik:ital,wght@0,500;1,800&family=Caveat+Brush&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main id="device">
+
+    <!-- ===== Panel layar (bagian atas) ===== -->
+    <section id="screen-panel">
+      <div id="stage">
+        <canvas id="game" aria-label="Game SUA"></canvas>
+        <!-- dua lapisan warna untuk mode layar hijau (tombol SELECT) -->
+        <div class="tint tint-light" aria-hidden="true"></div>
+        <div class="tint tint-dark" aria-hidden="true"></div>
+      </div>
+      <div class="panel-footer">
+        <button class="donate" id="donate-open" aria-haspopup="dialog">
+          <span aria-hidden="true">♥</span> DONASI
+        </button>
+      </div>
+    </section>
+
+    <!-- ===== Badan konsol (bagian bawah) ===== -->
+    <section id="controls">
+      <p class="brand">SUA <em>POCKET</em></p>
+
+      <div class="dpad" aria-label="Arah">
+        <button class="up"    data-key="up"    aria-label="Naik"></button>
+        <button class="left"  data-key="left"  aria-label="Kiri"></button>
+        <span   class="mid"   aria-hidden="true"></span>
+        <button class="right" data-key="right" aria-label="Kanan"></button>
+        <button class="down"  data-key="down"  aria-label="Turun"></button>
+      </div>
+
+      <div class="ab">
+        <div class="ab-b">
+          <button data-key="b" aria-label="B, lempar poster"></button>
+          <span>B</span>
+        </div>
+        <div class="ab-a">
+          <button data-key="a" aria-label="A, pasang spanduk"></button>
+          <span>A</span>
+        </div>
+      </div>
+
+      <div class="menu">
+        <div>
+          <button data-key="select" aria-label="Select, ganti warna layar"></button>
+          <span>SELECT</span>
+        </div>
+        <div>
+          <button data-key="start" aria-label="Start, mulai atau jeda"></button>
+          <span>START</span>
+        </div>
+      </div>
+
+      <!-- Coretan krayon: petunjuk kode easter egg -->
+      <p class="crayon" aria-label="Petunjuk kode rahasia: atas atas bawah bawah kiri kanan kiri kanan B A">
+        <span class="crayon-note">psst… di layar judul</span>
+        <span class="crayon-code" aria-hidden="true">↑↑↓↓<br>←→←→ BA</span>
+      </p>
+
+      <button class="speaker" id="speaker" aria-label="Suara" aria-pressed="true">
+        <i></i><i></i><i></i><i></i><i></i><i></i>
+      </button>
+    </section>
+    <!-- ===== Halaman donasi ===== -->
+    <div id="donate-panel" class="donate-panel" role="dialog" aria-modal="true" aria-labelledby="donate-title" hidden>
+      <div class="donate-card">
+        <h2 id="donate-title">Dukung gerakan ini</h2>
+        <p>Pilih salah satu link di bawah. Halamannya akan terbuka di tab baru.</p>
+
+        <!-- DAFTAR LINK DONASI: tambah, hapus, atau ganti di sini -->
+        <ul class="donate-list">
+          <li>
+            <a href="https://give.seasia.greenpeace.org/indonesia/?utm_campaign=General&amp;utm_source=Planet4&amp;utm_medium=Header&amp;utm_content=DonationButton&amp;utm_audience=merch-reg%23&amp;gp_anonymous_id=b683669e-8581-4fb2-878a-809b08a3cb14&amp;gtm_utm_campaign=General&amp;gtm_utm_source=Planet4&amp;gtm_utm_medium=Header&amp;gtm_utm_content=DonationButton" target="_blank" rel="noopener noreferrer">
+              <span class="donate-name">Greenpeace</span>
+              <span class="donate-desc">Donasi lewat situs resmi Greenpeace Indonesia</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.instagram.com/p/Deq8cm9lCtB/?utm_source=ig_web_copy_link&amp;mdxt=MzRlODBiNWFlZA==&amp;srtk=MzRlODBiNWFlZA==" target="_blank" rel="noopener noreferrer">
+              <span class="donate-name">RAWAT-A Collective Act of Care</span>
+              <span class="donate-desc">Lihat di Instagram</span>
+            </a>
+          </li>
+        </ul>
+
+        <p class="donate-note">Daftar link donasi akan diperbarui lagi nanti.</p>
+        <button class="donate-close" id="donate-close">Tutup</button>
+      </div>
+    </div>
+  </main>
+
+  <p id="hint">keyboard: panah · Z = A (spanduk) · X = B (poster) · Enter = START · Shift = SELECT · M = suara · ketuk speaker untuk bisukan</p>
+
+  <!-- Urutan penting: aset & suara dulu, baru game -->
+  <script src="aset.js"></script>
+  <script src="audio.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>
