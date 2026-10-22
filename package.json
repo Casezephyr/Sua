@@ -1,0 +1,23 @@
+{
+  "name": "sua",
+  "version": "1.0.0",
+  "description": "Game HTML portrait bergaya pixel, terinspirasi dari aksi Greenpeace Indonesia di Bundaran HI pada 20 Oktober 2026. Kota sudah hancur karena keserakahan, satwa yang terusir dari hutan berkeliaran di jalan. Pemain memanjat tiang di tengah kota, memasang spanduk, dan menghindari skylift, kabut asap, meriam air, serta drone.",
+  "main": "aset.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Casezephyr/Sua.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Casezephyr/Sua/issues"
+  },
+  "homepage": "https://github.com/Casezephyr/Sua#readme",
+  "dependencies": {
+    "@vercel/analytics": "^2.0.1"
+  }
+}
